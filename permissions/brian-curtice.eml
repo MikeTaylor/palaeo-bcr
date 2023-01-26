@@ -1,0 +1,299 @@
+Delivered-To: sauropoda@gmail.com
+Received: by 2002:a05:6124:405:b0:344:35b0:1ecf with SMTP id z5csp346597vln;
+        Thu, 26 Jan 2023 04:59:55 -0800 (PST)
+X-Received: by 2002:a2e:9ccf:0:b0:28f:48b9:3743 with SMTP id g15-20020a2e9ccf000000b0028f48b93743mr336877ljj.23.1674737995743;
+        Thu, 26 Jan 2023 04:59:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1674737995; cv=none;
+        d=google.com; s=arc-20160816;
+        b=RiVPDFL+MhPg8pH/8FEzE+D6u2UWnAOpg42+Tzx8+Sgkn1Rj3DicvvwJWSvCTU1SvA
+         P5/2qf88hgg+yHfiXiTVv6ImGF0ujALyOVmGCAnXc6iyDXLa5eIKEvVO1/7WeqEF2cXU
+         qsATRXplbS+gUlokeJi8GhkHExBBefKo3XHiS0YsrHTiENsftgdDaXojvFd5Pz01KBqZ
+         hjQ/hAC9RPO+FvPTSdsBraKw+dKjSxWFl3m2ySvBnauUTcA1kbsq2IuAsRTBJaXV4mBn
+         cn6ku6Sysb5y24VFxzrwFsp8mh4ktC+ifb0KuXq6v7Up/EwMiwfqWycEMn1QWzRnqeX7
+         6luA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=jSWEvva4CipSGpKX4cLbKbILBbMUJfRjh9lPRtky/uQ=;
+        b=b/X05CGeY9NBGJ3DomdKpcQV9TUFKdgz+dWe+ZRy0Fq2H61v377d/Tc2V5LcFpIVU+
+         Gt+72HV5JDs/VkyRxsug9zxGUuJGxduT6Vef8AlFiBI6ILqdu1huPDapU3RMkdg6xXwF
+         VOPNlxJyT1xDzTXIU0XDnPiyjpuvptoDncp9MXei99I3f/WewiByfXWawVIcVYe4hFbJ
+         WtPZ69hg9UhJUMffM1OhFvWYyN/od4J9WbBJC4vCd2HalTc2KY/wAEdkOo/5z70qrhQ7
+         PJa0KV6ZuOoAT9c7u7S5E/U05hpRzcD4lxt0wGQJTjnPPGeDSA860NbqlEmraA3vDKnX
+         gm3Q==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@fossilcrates-com.20210112.gappssmtp.com header.s=20210112 header.b=pbM6a530;
+       spf=pass (google.com: domain of brian@fossilcrates.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=brian@fossilcrates.com
+Return-Path: <brian@fossilcrates.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id v10-20020a2ea60a000000b00284c496a8dasor496578ljp.11.2023.01.26.04.59.55
+        for <sauropoda@gmail.com>
+        (Google Transport Security);
+        Thu, 26 Jan 2023 04:59:55 -0800 (PST)
+Received-SPF: pass (google.com: domain of brian@fossilcrates.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@fossilcrates-com.20210112.gappssmtp.com header.s=20210112 header.b=pbM6a530;
+       spf=pass (google.com: domain of brian@fossilcrates.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=brian@fossilcrates.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fossilcrates-com.20210112.gappssmtp.com; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=jSWEvva4CipSGpKX4cLbKbILBbMUJfRjh9lPRtky/uQ=;
+        b=pbM6a530ZQkpuCvo9h6feFQ1GR8BVn9P3t0e2fTnvBKHLkDTPEtFgbHH+V/gDr4cl8
+         7NRGnsksDAmqH2kID5/6cM+qJQdniwIrmPox5w6Tjgsv8IN/cIqKTwU1Hyc9XNuBH+JF
+         unCUkYNky4wRajsgepcBU4eUtDOPyygcbEuUaVdhoVai8IPixV0uJH/SBIEArQiZS5Q5
+         QXgwLebVR/6kXijPfAaLvxbGcUwFhRZDHhiCbwiuH8X1HpW9JVteUGKHBExNsrqgq0yy
+         uCenArxI9GgQCJOqrvSFUvF2I2UQF/5dYgyo5Mt4owUu4m153sLl9c4OvOdxv3o4ZQYr
+         qDGg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20210112;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=jSWEvva4CipSGpKX4cLbKbILBbMUJfRjh9lPRtky/uQ=;
+        b=QC/KpiYju0a8bD3/YD36l9NZKxaKqDslyM6njHlCYAP6i9KRroz2Fnt7+sOS5ivP/N
+         aKqaHChBfVYCeA1fisGTtq2CrQAYlAJ5MPBW1GcCOeQ9mbhfT+X6wOvFdL8GzTHb58Ro
+         Sv2tI1PCxPjco4XmAOrmNL2mtbKHvmLs7JjxZLiEQjnmK2hBj56PBQplvRXlLOEt84Lf
+         PyLNujOq7LR0T1iNDP9ZScImiFeFQjuJRjg0I7lb59F8dH2s0PRNhWf6orSWaMnlWkhT
+         2GDMYmKD0lOFI/JbDcmU0rAZDNIRQmWc/4suz8kZfA2zypAY0UHJgShhRHgnCQwPv/vd
+         AaNw==
+X-Gm-Message-State: AO0yUKWTBjdYNMQjc5baLKllHF7gAAhb7Pc83UOREb7vv/GkUCf8fizg
+	1DCYPpeVgohM77p0Q+KIXJnC+wIcNTBNbDn7j8+FMREaMhNwU9/o
+X-Google-Smtp-Source: AK7set+nsF09pBaeSu2T5ECaO0XgyhJPNeE4gm5YOwUZlRwq2wsDnVQgVX9J8tN3pK+zb0B6QqjWD5XPvi7i8hjwX7c=
+X-Received: by 2002:a2e:8558:0:b0:28e:4f46:5a29 with SMTP id
+ u24-20020a2e8558000000b0028e4f465a29mr333696ljj.213.1674737994500; Thu, 26
+ Jan 2023 04:59:54 -0800 (PST)
+MIME-Version: 1.0
+References: <819f27d1-a140-46d5-a453-3f11f02a0ca7@docs-share.google.com>
+ <autogen-java-f3c9cd4d-8b10-46d7-91cc-7a75536c3af7@google.com>
+ <CACnMvBYttwdn3g5VrrkmVeWiUUGbSU4cxHnfxY+xGs4SbNX59w@mail.gmail.com>
+ <CAOf8E3rAKJjVfmtPZWyLTyDpWx4t7ZHaM0PBe=GS+3k+9BpSTg@mail.gmail.com>
+ <CACnMvBZa9a-R1yss3HWeqhmN35ECFujssz0d4m2ZbRmtU+mcDg@mail.gmail.com>
+ <CAOf8E3oyjZGqV4m+G-hFyZ-tpWaNemm2o0LfgyD1gHm2ZMPgzA@mail.gmail.com>
+ <CACnMvBYiGq52S+W4Lp5S0C+fW7Q+3XniJ7LzNbGvQqH=0-5CxQ@mail.gmail.com>
+ <CAOf8E3p-EStufZsCE3qi=tH6VOsm=fF6DBqSXnkpsbRtac0Vgg@mail.gmail.com>
+ <CACnMvBYJaAMQtp1QjBjJyfzaxZMUAiO+bXcub-qk=PSJykbQ9w@mail.gmail.com>
+ <CAOf8E3oREar96su=vs8S_e3jAGFwDTCgOnjrT=jETNcu4treMQ@mail.gmail.com> <CACnMvBb2Q37eypoXHnepEeO6sjA-6yd3zw1OaUzNs1w-3WKndg@mail.gmail.com>
+In-Reply-To: <CACnMvBb2Q37eypoXHnepEeO6sjA-6yd3zw1OaUzNs1w-3WKndg@mail.gmail.com>
+From: Brian Curtice <brian@fossilcrates.com>
+Date: Thu, 26 Jan 2023 07:59:43 -0500
+Message-ID: <CAOf8E3rwi7UsB1_MKErT_enz1kjatMdFEwDk9ycqXXOrTPnkUA@mail.gmail.com>
+Subject: Re: Folder shared with you: "YPM 1980"
+To: Mike Taylor <sauropoda@gmail.com>
+Cc: Mathew Wedel <mathew.wedel@gmail.com>
+X-StripMime: Non-text section removed by stripmime
+Content-Type: text/plain; charset="UTF-8"
+
+To Whom it May Concern,
+
+Please feel free to cite me as I am on the ground and attempting to make
+amends for past transgressions
+
+(Maybe the editor will get a chuckle?  :-) )
+
+On Thu, Jan 26, 2023 at 7:58 AM Mike Taylor <sauropoda@gmail.com> wrote:
+
+> Ha! That in itself says so much about YPM 1980!
+>
+> Thanks.
+>
+> And this is OK to cite as pers. comm.? (Lots of editors these days want to
+> see written permission.)
+>
+> -- Mike.
+>
+>
+> On Thu, 26 Jan 2023 at 12:52, Brian Curtice <brian@fossilcrates.com>
+> wrote:
+>
+>> Yep. I just hand counted and there 2. The left of #3 (old and new
+>> position) and the right of #6. Every other CR ends in plaster.
+>>
+>> On Thu, Jan 26, 2023 at 7:39 AM Mike Taylor <sauropoda@gmail.com> wrote:
+>>
+>>> Thanks, that's helpful! Roughly how many of the 30 possible CRs are
+>>> preserved in bone and show the absence of this feature?
+>>>
+>>> Is it OK to cite this as a pers. comm.?
+>>>
+>>> -- Mike.
+>>>
+>>>
+>>> On Thu, 26 Jan 2023 at 12:31, Brian Curtice <brian@fossilcrates.com>
+>>> wrote:
+>>>
+>>>>
+>>>> I can answer the bifurcation question: none show it where bone is
+>>>> present.
+>>>>
+>>>>
+>>>> On Thu, Jan 26, 2023 at 7:22 AM Mike Taylor <sauropoda@gmail.com>
+>>>> wrote:
+>>>>
+>>>>> I think it's really tragic that this once-in-a-generation opportunity
+>>>>> to figure what the heck is actually going on with this specimen is being
+>>>>> passed up. Oh well.
+>>>>>
+>>>>> There is one other more important thing you could do for us, though.
+>>>>> If you take a quick look at the attached illustration from an in-progress
+>>>>> manuscript, you'll see that some apatosaurine cervicals have bifurcated
+>>>>> cervical ribs a bit like those documented in Moabosaurus, or "incipient
+>>>>> bifurcation" where there is a dorsal or dorsomedial tab protruding from the
+>>>>> distal part of the rib. If you can find any of these in the YPM 1980
+>>>>> cervicals (and if you're confident they're real bone), it would be great to
+>>>>> get photos.
+>>>>>
+>>>>> Thank you!
+>>>>>
+>>>>> -- Mike.
+>>>>>
+>>>>>
+>>>>>
+>>>>> On Thu, 26 Jan 2023 at 12:15, Brian Curtice <brian@fossilcrates.com>
+>>>>> wrote:
+>>>>>
+>>>>>> It is actually as prepped as it will ever be. Next step is paint
+>>>>>> which is why I am here in a massive snowstorm :-).
+>>>>>>
+>>>>>> Today is photography day and looking at the other side. I will take
+>>>>>> extra special time on it!
+>>>>>>
+>>>>>> On Thu, Jan 26, 2023 at 7:06 AM Mike Taylor <sauropoda@gmail.com>
+>>>>>> wrote:
+>>>>>>
+>>>>>>> EVERYTHING!!!
+>>>>>>>
+>>>>>>> :-)
+>>>>>>>
+>>>>>>> Seriously, I guess the biggest thing I'd love to see is
+>>>>>>> documentation of the actual bone that makes up "C8" of the old mount. We
+>>>>>>> have used the MD illustration of it many times — e.g.
+>>>>>>> https://svpow.com/2008/05/13/seriously-apatosaurus-is-just-nuts/ —
+>>>>>>> and I would love to know just how fictional it is. But I'm guessing it's
+>>>>>>> not going to be nearly prepped enough in the next 24 hours for you to be
+>>>>>>> able to do that.
+>>>>>>>
+>>>>>>> -- Mike.
+>>>>>>>
+>>>>>>>
+>>>>>>> On Thu, 26 Jan 2023 at 11:28, Brian Curtice <brian@fossilcrates.com>
+>>>>>>> wrote:
+>>>>>>>
+>>>>>>>> Yep!  Today is possibly my last day in the collections so if
+>>>>>>>> anything comes to mind that we should capture let me know!
+>>>>>>>>
+>>>>>>>> On Thu, Jan 26, 2023 at 4:47 AM Mike Taylor <sauropoda@gmail.com>
+>>>>>>>> wrote:
+>>>>>>>>
+>>>>>>>>> These are great, thank you!
+>>>>>>>>>
+>>>>>>>>> (I assume you sent them to Matt, too.)
+>>>>>>>>>
+>>>>>>>>> -- Mike.
+>>>>>>>>>
+>>>>>>>>>
+>>>>>>>>> On Thu, 26 Jan 2023 at 08:02, BRIAN CURTICE (via Google Drive) <
+>>>>>>>>> drive-shares-dm-noreply@google.com> wrote:
+>>>>>>>>>
+>>>>>>>>>> BRIAN CURTICE shared a folder
+>>>>>>>>>> [image: Unknown profile photo]
+>>>>>>>>>> BRIAN CURTICE (brian@fossilcrates.com) has invited you to *contribute
+>>>>>>>>>> to* the following shared folder:
+>>>>>>>>>> Vids of 1980. I dbl loaded c13’s as C14. I will shoot C14 today.
+>>>>>>>>>> YPM 1980
+>>>>>>>>>>
+>>>>>>>>>> <https://drive.google.com/drive/folders/1b5oZ68F9VF5ih4iMrjIWqSAqtCjHhmD1?usp=sharing_eil_m&ts=63d23381>
+>>>>>>>>>>
+>>>>>>>>>> Open
+>>>>>>>>>> <https://drive.google.com/drive/folders/1b5oZ68F9VF5ih4iMrjIWqSAqtCjHhmD1?usp=sharing_eip_m&ts=63d23381>
+>>>>>>>>>> If you don't want to receive files from this person, block the
+>>>>>>>>>> sender
+>>>>>>>>>> <https://drive.google.com/drive/blockuser?blockerEmail=sauropoda@gmail.com&blockeeEmail=brian@fossilcrates.com&usp=sharing_eib_m>
+>>>>>>>>>> from Drive
+>>>>>>>>>> Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043,
+>>>>>>>>>> USA
+>>>>>>>>>> <https://www.google.com/maps/search/1600+Amphitheatre+Parkway,+Mountain+View,+CA+94043,+USA?entry=gmail&source=g>
+>>>>>>>>>> You have received this email because brian@fossilcrates.com
+>>>>>>>>>> shared a file or folder located in Google Drive with you. [image:
+>>>>>>>>>> Google logo] <https://workspace.google.com/>
+>>>>>>>>>>
+>>>>>>>>> --
+>>>>>>>> [image: photo]
+>>>>>>>> *Brian Curtice, PhD*
+>>>>>>>> Founder and CEO, Fossil Crates
+>>>>>>>>
+>>>>>>>> 480-280-7132| Brian@FossilCrates.com
+>>>>>>>>
+>>>>>>>> www.FossilCrates.com
+>>>>>>>> [image: facebook] <http://facebook.com/FossilcratesDrBC> [image:
+>>>>>>>> instagram] <http://instagram.com/fossilcrates> [image: twitter]
+>>>>>>>> <http://twitter.com/fossilcrates> [image: 500px]
+>>>>>>>> <http://500px.com/bcurtice> [image: youtube]
+>>>>>>>> <https://www.youtube.com/channel/UCJ34j3FmGhrrUbaeJZzTdOQ/>
+>>>>>>>> [image: App Banner Image] <https://www.fossilcrates.com>
+>>>>>>>>
+>>>>>>>>
+>>>>>>> --
+>>>>>> [image: photo]
+>>>>>> *Brian Curtice, PhD*
+>>>>>> Founder and CEO, Fossil Crates
+>>>>>>
+>>>>>> 480-280-7132| Brian@FossilCrates.com
+>>>>>>
+>>>>>> www.FossilCrates.com
+>>>>>> [image: facebook] <http://facebook.com/FossilcratesDrBC> [image:
+>>>>>> instagram] <http://instagram.com/fossilcrates> [image: twitter]
+>>>>>> <http://twitter.com/fossilcrates> [image: 500px]
+>>>>>> <http://500px.com/bcurtice> [image: youtube]
+>>>>>> <https://www.youtube.com/channel/UCJ34j3FmGhrrUbaeJZzTdOQ/>
+>>>>>> [image: App Banner Image] <https://www.fossilcrates.com>
+>>>>>>
+>>>>>>
+>>>>> --
+>>>> [image: photo]
+>>>> *Brian Curtice, PhD*
+>>>> Founder and CEO, Fossil Crates
+>>>>
+>>>> 480-280-7132| Brian@FossilCrates.com
+>>>>
+>>>> www.FossilCrates.com
+>>>> [image: facebook] <http://facebook.com/FossilcratesDrBC> [image:
+>>>> instagram] <http://instagram.com/fossilcrates> [image: twitter]
+>>>> <http://twitter.com/fossilcrates> [image: 500px]
+>>>> <http://500px.com/bcurtice> [image: youtube]
+>>>> <https://www.youtube.com/channel/UCJ34j3FmGhrrUbaeJZzTdOQ/>
+>>>> [image: App Banner Image] <https://www.fossilcrates.com>
+>>>>
+>>>>
+>>> --
+>> [image: photo]
+>> *Brian Curtice, PhD*
+>> Founder and CEO, Fossil Crates
+>>
+>> 480-280-7132| Brian@FossilCrates.com
+>>
+>> www.FossilCrates.com
+>> [image: facebook] <http://facebook.com/FossilcratesDrBC> [image:
+>> instagram] <http://instagram.com/fossilcrates> [image: twitter]
+>> <http://twitter.com/fossilcrates> [image: 500px]
+>> <http://500px.com/bcurtice> [image: youtube]
+>> <https://www.youtube.com/channel/UCJ34j3FmGhrrUbaeJZzTdOQ/>
+>> [image: App Banner Image] <https://www.fossilcrates.com>
+>>
+>>
+> --
+[image: photo]
+*Brian Curtice, PhD*
+Founder and CEO, Fossil Crates
+
+480-280-7132| Brian@FossilCrates.com
+
+www.FossilCrates.com
+[image: facebook] <http://facebook.com/FossilcratesDrBC> [image: instagram]
+<http://instagram.com/fossilcrates> [image: twitter]
+<http://twitter.com/fossilcrates> [image: 500px]
+<http://500px.com/bcurtice> [image:
+youtube] <https://www.youtube.com/channel/UCJ34j3FmGhrrUbaeJZzTdOQ/>
+[image: App Banner Image] <https://www.fossilcrates.com>
+
+
