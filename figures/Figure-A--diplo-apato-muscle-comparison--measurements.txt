@@ -1,0 +1,15 @@
+		px	mm	px/mm	avg
+		from	from
+		XCF	paper
+------------------------------------------------------------------------------
+Diplodocus (Hatcher 1901:38)
+	C6	519	442	1.174	1.169
+	C7	564	485	1.163
+Apatosaurus (Gilmore 1936:196)
+	C6	502	440	1.141	1.156
+	C7	527	450	1.171
+
+=> Apatosaurus is drawn larger by a factor of 1.169/1.156 = 1.01
+
+Close enough not to warrant changing. (Probably because we are using
+same-DPI scans of papers that used same scaling.)
