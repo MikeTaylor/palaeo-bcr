@@ -1,4 +1,4 @@
-# RESPONSE TO REVIEWS: Bifucated Cervical Ribs (Wedel and Taylor)
+# RESPONSE TO REVIEWS: Bifucated Cervical Ribs (Wedel &amp; Taylor)
 
 Please accept our apologies for the slow response to these very helpful reviews. Unhappily, they arrived just before the corresponding author went on a two-week vacation which necessitated an intense week of catching up on returning. We are now pleased to present our revised manuscript.
 
